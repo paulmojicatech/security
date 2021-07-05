@@ -6,40 +6,28 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.JsonWebTokens;
 using PaulMojicaTech.Security.Models;
+using PaulMojicaTech.Security.Models.RequestModels;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace PaulMojicaTech.Security.Controllers
 {
-    [Route("api/[controller]")]
     public class SecurityController : Controller
     {
+        [Route("api/[controller]/authenticate")]
         [Consumes(MediaTypeNames.Application.Json)]
         [HttpPost]
-        public IActionResult Authenticate([FromBody]User neUser)
+        public IActionResult Authenticate([FromBody]AuthenticateRequest authReq)
         {
             try
             {
-                return Ok();
-           
+                return Ok(authReq);
+
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
         }
 
         // PUT api/values/5
