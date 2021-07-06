@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Npgsql;
+using PaulMojicaTech.Security.Utils;
 
 namespace PaulMojicaTech.Security
 {
@@ -64,7 +65,6 @@ namespace PaulMojicaTech.Security
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = false;
             });
-
             services.ConfigureApplicationCookie(options =>
             {
                 // Cookie settings
